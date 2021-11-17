@@ -9,11 +9,11 @@ class Plateau:
         for i in range(y):
             k = []
             for n in range(x):
-                k.append(case(n,i))
-            list.append(k)
-            k.clear()
+                k.append(Case(n,i))
+            self.list.append(k)
+            
 
-
-zeg = Plateau()
-zeg.matrice(8,3)
-print(zeg.list)
+if __name__== "main":
+    zeg = Plateau()
+    zeg.matrice(8,3)
+    print(zeg.list[2][2].y)
