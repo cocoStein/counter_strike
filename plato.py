@@ -1,19 +1,28 @@
 from case import *
-
+from random import *
 
 class Plateau:
-    def __init__(self, list = []):
+    def __init__(self, x , y, list = [],):
         self.list = list
-
-    def matrice(self, x, y):
-        for i in range(y):
+        self.x = x
+        self.y = y
+    def matrice(self):
+        for i in range(self.y):
             k = []
-            for n in range(x):
+            for n in range(self.x):
                 k.append(Case(n,i))
             self.list.append(k)
-            
+    
+    def crBombe(self, difficulty=3):
+        for i in range(difficulty):
+            x = randrange(self.x)
+            y = randrange(self.y)
+            self.list[y][x].valeur = True
 
-if __name__== "main":
-    zeg = Plateau()
-    zeg.matrice(8,3)
-    print(zeg.list[2][2].y)
+
+zeg = Plateau(4,4)
+zeg.matrice()
+zeg.crBombe(7)
+for i in range(zeg.y):
+    for n in range(zeg.x):
+        print(zeg.list[i][n].valeur)

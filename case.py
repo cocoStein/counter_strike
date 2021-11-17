@@ -7,6 +7,8 @@ class Case:
     def __print__(self):
        return self.valeur
 
+    
+
 
 if __name__== "main":
     print("test")
