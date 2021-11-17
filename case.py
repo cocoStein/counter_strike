@@ -5,8 +5,8 @@ class Case:
         self.valeur = valeur    #Bombe ou pas
         self.numero = numero
     
-    def __print__(self):
-       return self.valeur
+    def __str__(self):
+       return str(self.valeur)
 
     def check(self, list):
 
