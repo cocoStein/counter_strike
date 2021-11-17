@@ -6,6 +6,7 @@ class Plateau:
         self.list = list
         self.x = x
         self.y = y
+    
     def matrice(self):
         for i in range(self.y):
             k = []
