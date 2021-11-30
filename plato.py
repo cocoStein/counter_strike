@@ -7,7 +7,7 @@ class Plateau:
         self.x = x
         self.y = y
     def __str__(self):
-        return self.list
+        return str(self.list)
     def matrice(self):
         for i in range(self.y):
             k = []
@@ -27,4 +27,4 @@ zeg.matrice()
 zeg.crBombe(7)
 for i in range(zeg.y):
     for n in range(zeg.x):
-        print(zeg)
+        print(zeg[n][i].nombre)

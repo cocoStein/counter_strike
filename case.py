@@ -15,28 +15,36 @@ class Case:
             pass
         else:
             if list[self.y - 1][self.x - 1].valeur == True:
-                self.numero += 1
+                    self.numero += 1
             if list[self.y - 1][self.x].valeur == True:
-                self.numero += 1
+                    self.numero += 1
             if list[self.y - 1][self.x + 1].valeur == True:
-                self.numero += 1
+                    self.numero += 1
                 
-        #check cotés
-        if list[self.y - 1][self.x - 1].valeur == True:
-                self.numero += 1
-        if list[self.y - 1][self.x - 1].valeur == True:
-                self.numero += 1
-
-        #check en bas 
-        if list[self.y] == 0:
+        #check cotés gauche
+        if list[self.x] == 0:
             pass
         else:
-            if list[self.y - 1][self.x - 1].valeur == True:
+            if list[self.y][self.x - 1].valeur == True:
+                    self.numero += 1
+
+        #check en bas 
+        if list[self.y] == len(list):
+            pass
+        else:
+            if list[self.y + 1][self.x - 1].valeur == True:
                 self.numero += 1
-            if list[self.y - 1][self.x].valeur == True:
+            if list[self.y + 1][self.x].valeur == True:
                 self.numero += 1
+            if list[self.y + 1][self.x + 1].valeur == True:
+                self.numero += 1
+        
+        #check cotés droit
+        if list[self.x] == len(list):
+            pass
+        else:
             if list[self.y - 1][self.x + 1].valeur == True:
-                self.numero += 1
+                    self.numero += 1
 
 if __name__== "main":
     print("test")
