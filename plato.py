@@ -12,6 +12,7 @@ class Plateau:
         for i in range(self.y):
             k = []
             for n in range(self.x):
+                
                 k.append(Case(n,i))
             self.list.append(k)
     
@@ -20,11 +21,15 @@ class Plateau:
             x = randrange(self.x)
             y = randrange(self.y)
             self.list[y][x].valeur = True
+    
+    def showTerminal(self):
+        for i in range(self.y):
+            for l in range(self.x):
+                print(self.list[self.y][self.x].valeur,"  |   ")
 
 
 zeg = Plateau(4,4)
 zeg.matrice()
 zeg.crBombe(7)
-for i in range(zeg.y):
-    for n in range(zeg.x):
-        print(zeg[n][i].nombre)
+print(zeg)
+#zeg.showTerminal()
