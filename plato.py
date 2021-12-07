@@ -6,8 +6,15 @@ class Plateau:
         self.list = list
         self.x = x
         self.y = y
+
     def __str__(self):
-        return str(self.list)
+        affiche = ""
+        for line in self.list:
+            for case in line:
+                affiche+=str(case) + " | "
+            affiche+="\n"
+        return affiche
+
     def matrice(self):
         for i in range(self.y):
             k = []
@@ -22,14 +29,11 @@ class Plateau:
             y = randrange(self.y)
             self.list[y][x].valeur = True
     
-    def showTerminal(self):
-        for i in range(self.y):
-            for l in range(self.x):
-                print(self.list[self.y][self.x].valeur,"  |   ")
+    
 
 
-zeg = Plateau(4,4)
+zeg = Plateau(9,9)
 zeg.matrice()
-zeg.crBombe(7)
+zeg.crBombe(16)
 print(zeg)
 #zeg.showTerminal()
