@@ -6,7 +6,7 @@ class Case:
         self.numero = numero
     
     def __str__(self):
-       return str(self.valeur)
+       return str(self.numero)
 
     def check(self, list):
 

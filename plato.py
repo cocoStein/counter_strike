@@ -28,6 +28,11 @@ class Plateau:
             x = randrange(self.x)
             y = randrange(self.y)
             self.list[y][x].valeur = True
+
+    def bombinator(self):
+        for y in range(self.y):
+            for x in range(self.x):
+                self.list[y][x].check(self.list)
     
     
 
@@ -35,5 +40,6 @@ class Plateau:
 zeg = Plateau(9,9)
 zeg.matrice()
 zeg.crBombe(16)
+zeg.bombinator()
 print(zeg)
 #zeg.showTerminal()
