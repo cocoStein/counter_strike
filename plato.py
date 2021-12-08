@@ -2,7 +2,7 @@ from case import *
 from random import *
 
 class Plateau:
-    def __init__(self, x , y, list = [],):
+    def __init__(self, x , y, list = []):
         self.list = list
         self.x = x
         self.y = y
@@ -25,21 +25,21 @@ class Plateau:
     
     def crBombe(self, difficulty=3):
         for i in range(difficulty):
-            x = randrange(self.x)
+            x = randrange(self.x) 
             y = randrange(self.y)
             self.list[y][x].valeur = True
 
     def bombinator(self):
         for y in range(self.y):
             for x in range(self.x):
-                self.list[y][x].check(self.list)
+                self.list[y][x].checkbomb(self.list)
     
     
 
 
-zeg = Plateau(9,9)
+zeg = Plateau(10,10)
 zeg.matrice()
-zeg.crBombe(16)
+zeg.crBombe(42)
 zeg.bombinator()
 print(zeg)
-#zeg.showTerminal()
+

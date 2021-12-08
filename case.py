@@ -8,60 +8,74 @@ class Case:
     def __str__(self):
        return str(self.numero)
 
-    def check(self, list):
+    
+    def checkbomb(self, list_plato):
+        
+        if self.valeur == False:
+            
+            if self.x == 0:
+                    pass
+            else:
+                  
+                try:    # Check millieu gauche
+                    if list_plato[self.y][self.x - 1].valeur == True:
+                        self.numero += 1
+                except IndexError:
+                    pass
 
-        #check en haut 
-        if list[self.y] == 0:
-            pass
-        else:
-            if list[self.x] == 0:
+                try:    # Check bas gauche
+                    if list_plato[self.y + 1][self.x - 1].valeur == True:
+                        self.numero += 1
+                except IndexError:
+                    pass
+            
+            if self.y == 0:
                 pass
             else:
-                if list[self.y - 1][self.x - 1].valeur == True:
-                    self.numero += 1
-            if list[self.y - 1][self.x].valeur == True:
-                    self.numero += 1
-            if list[self.x] == len(list):
+                try:    # Check haut millieu
+                    if list_plato[self.y - 1][self.x].valeur == True:
+                        self.numero += 1
+                except IndexError:
+                    pass
+                try:   # Check haut gauche
+                    if list_plato[self.y - 1][self.x + 1].valeur == True:
+                        self.numero += 1
+                except IndexError:
+                    pass
+            
+            if self.y == 0 or self.x == 0:
                 pass
-            else:        
-                if list[self.y - 1][self.x + 1].valeur == True:
-                    self.numero += 1
-                
-        #check cotés gauche
-        if list[self.x] == 0:
-            pass
-        else:
-            if list[self.y][self.x - 1].valeur == True:
-                    self.numero += 1
+            else:
+                try:    # Check haut gauche
+                    if list_plato[self.y - 1][self.x - 1].valeur == True:
+                        self.numero += 1
+                except IndexError:
+                    pass
 
-        #check en bas 
-        if list[self.y] == len(list):
-            pass
-        else:
-            if list[self.y + 1][self.x - 1].valeur == True:
-                self.numero += 1
-            if list[self.y + 1][self.x].valeur == True:
-                self.numero += 1
-            if list[self.y + 1][self.x + 1].valeur == True:
-                self.numero += 1
-        
-        #check cotés droit
-        if list[self.x] == len(list):
-            pass
-        else:
-            if list[self.y - 1][self.x + 1].valeur == True:
+            try:    # Check millieu droite
+                if list_plato[self.y][self.x + 1].valeur == True:
                     self.numero += 1
+            except IndexError:
+                pass
 
-    def checkbomb(self, list):
-        # check en haut
+            
 
-        try:
-            if list[self.y - 1][self.x - 1].valeur == True:
-                self.numero += 1
-        except IndexError:
-            pass
-        
+            try:    # Check bas millieu
+                if list_plato[self.y + 1][self.x].valeur == True:
+                    self.numero += 1
+            except IndexError:
+                pass
+
+            try:    # Check bas droite
+                if list_plato[self.y + 1][self.x + 1].valeur == True:
+                    self.numero += 1
+            except IndexError:
+                pass
+        else:
+            self.numero = "X"
         
 
 if __name__== "main":
     print("test")
+    bla = Case(14,18)
+    bla.checkbomb()
