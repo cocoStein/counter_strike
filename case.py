@@ -1,9 +1,10 @@
 class Case:
-    def __init__(self, x, y, valeur = False, numero = 0):
+    def __init__(self, x, y, valeur = False, numero = 0, open = False):
         self.x = x #Coor horizontal
         self.y = y #Coor vertical
         self.valeur = valeur    #Bombe ou pas
         self.numero = numero    #nbr bombes
+        self.open = open  #discovered or not ( True / False)
     
     def __str__(self):
        return str(self.numero)
@@ -75,7 +76,7 @@ class Case:
             self.numero = "X"
         
 
-if __name__== "main":
+if __name__== "__main__":
     print("test")
     bla = Case(14,18)
     
