@@ -12,7 +12,7 @@ class Plateau:
         for line in self.list:
             for case in line:
                 affiche+=str(case) + " | "
-            affiche+="\n"
+            affiche+="\n" + ""
         return affiche
 
     def matrice(self):
@@ -34,12 +34,10 @@ class Plateau:
             for x in range(self.x):
                 self.list[y][x].checkbomb(self.list)
     
-    
-
-
-zeg = Plateau(10,10)
-zeg.matrice()
-zeg.crBombe(42)
-zeg.bombinator()
-print(zeg)
+if __name__==  "__main__":
+    zeg = Plateau(10,10)
+    zeg.matrice()
+    zeg.crBombe(42)
+    zeg.bombinator()
+    print(zeg)
 

@@ -78,4 +78,4 @@ class Case:
 if __name__== "main":
     print("test")
     bla = Case(14,18)
-    bla.checkbomb()
+    
