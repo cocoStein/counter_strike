@@ -36,9 +36,14 @@ class Plateau:
                 self.list[y][x].checkbomb(self.list)
 
     def showTerminal(self):
-        terminal = ""
+        terminal = "/  "
+        for i in range(self.x):
+            terminal += str(i) + "   "
+        terminal += "\n"
         for line in self.list:
+            terminal += str(self.list.index(line)) + "| "
             for case in line:
+                
                 if case.open == False:
                     terminal += "■" + " | "
                     
@@ -60,9 +65,9 @@ class Plateau:
         
 if __name__==  "__main__":
     print("璽■○□")
-    zeg = Plateau(40,40)
+    zeg = Plateau(10,10)
     zeg.matrice()
-    zeg.crBombe(400)
+    zeg.crBombe(20)
     zeg.bombinator()
     print(zeg)
     zeg.showTerminal()
@@ -72,3 +77,4 @@ if __name__==  "__main__":
         zeg.discovered(x, y)
         zeg.showTerminal()
   
+
