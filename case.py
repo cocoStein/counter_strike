@@ -75,6 +75,29 @@ class Case:
         else:
             self.numero = "X"
         
+    def voisins(self, grille):
+    
+        voisins = []
+        nbligne = len(grille)
+        nbcol = len(grille[0])
+        if self.x-1 in range(nbligne):
+            voisins.append((self.x-1,self.y))
+            if self.y-1 in range(nbcol):
+                voisins.append((self.x-1,self.y-1))
+            if self.y+1 in range(nbcol):
+                voisins.append((self.x-1,self.y+1))
+        if self.x+1 in range(nbligne):
+            voisins.append((self.x+1,self.y))
+            if self.y-1 in range(nbcol):
+                voisins.append((self.x+1,self.y-1))
+            if self.y+1 in range(nbcol):
+                voisins.append((self.x+1,self.y+1))
+        if self.y-1 in range(nbcol):
+                voisins.append((self.x,self.y-1))
+        if self.y+1 in range(nbcol):
+                voisins.append((self.x,self.y+1))  
+                
+        return voisins    
 
 if __name__== "__main__":
     print("test")
