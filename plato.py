@@ -56,6 +56,11 @@ class Plateau:
 
     def discovered(self,x ,y):
         self.list[y][x].open = True
+
+        if self.list[y][x].numero == "X":
+            print("BOUUM !!", x, ",", y, "est une bombe, vous avez perdu...")
+            
+
         if self.list[y][x].numero == 0:
             vs = self.list[y][x].voisins(self.list)
             for case in vs:
