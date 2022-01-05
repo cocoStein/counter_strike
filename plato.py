@@ -36,17 +36,18 @@ class Plateau:
                 self.list[y][x].checkbomb(self.list)
 
     def showTerminal(self):
-        terminal = "/  "
+        terminal = "/   "
         for i in range(self.x):
             terminal += str(i) + "   "
         terminal += "\n"
         for line in self.list:
-            terminal += str(self.list.index(line)) + "| "
+            terminal += str(self.list.index(line)) + "|| "
             for case in line:
                 
-                if case.open == False:
+                if case.open == False and case.evidence == False:
                     terminal += "■" + " | "
-                    
+                elif case.evidence == True and case.open == False:
+                    terminal += "!" + " | "
                 else:
                     terminal += "" + str(case) + " | "
             
@@ -66,6 +67,18 @@ class Plateau:
             for case in vs:
                 if self.list[case[1]][case[0]].valeur == False and self.list[case[1]][case[0]].open == False :
                     self.discovered(case[0],case[1])
+
+    def evidence(self,x,y):
+        self.list[y][x].evidence = True
+
+    def checkwin(self):
+        n = 0 #nombre de case restant
+
+        for line in self.list:
+            for case in line:
+                if case.valeur == False and case.open == False:
+                    n += 1
+        return n
 
 if __name__ == "__main__":
     print("璽■○□")
