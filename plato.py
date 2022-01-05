@@ -66,9 +66,8 @@ class Plateau:
             for case in vs:
                 if self.list[case[1]][case[0]].valeur == False and self.list[case[1]][case[0]].open == False :
                     self.discovered(case[0],case[1])
-        
-        
-if __name__==  "__main__":
+
+if __name__ == "__main__":
     print("璽■○□")
     zeg = Plateau(10,10)
     zeg.matrice()
