@@ -1,17 +1,19 @@
 class Case:
-    def __init__(self, x, y, valeur = False, numero = 0, open = False):
+    def __init__(self, x, y, valeur=False, numero=0, open=False, evidence=False):
         self.x = x #Coor horizontal
         self.y = y #Coor vertical
         self.valeur = valeur    #Bombe ou pas
         self.numero = numero    #nbr bombes
         self.open = open  #discovered or not ( True / False)
-    
+        self.evidence = evidence  # Pour mettre en evidence ou non la case
+
     def __str__(self):
        return str(self.numero)
 
     
     def checkbomb(self, list_plato):
-        
+        #   Check le nombre de bombe dans les cases adjacentes
+
         if self.valeur == False:
             
             if self.x == 0:
