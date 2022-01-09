@@ -25,16 +25,6 @@ class Game_window:
         y_space = HEIGHT / self.plato.y
         self.turtle.speed(0)
 
-        #self.turtle.pu()
-        #self.turtle.goto(self.x0 - x_space, self.y0 + y_space)
-        #self.turtle.pd()
-        #self.turtle.goto(self.x0 - x_space, -HEIGHT / 2 - x_space)
-        #
-        #self.turtle.pu()
-        #self.turtle.goto(self.x0 - x_space, self.y0 + y_space)
-        #self.turtle.pd()
-        #self.turtle.goto(-WIDTH / 2, self.y0)
-
         for i in range(self.plato.x + 1):
             if i-1 == -1:
                 pass
