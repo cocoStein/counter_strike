@@ -84,7 +84,7 @@ def draw_number(platard, x, y):
 
 
     stuck1.pu()
-    stuck1.goto((x0 + x * x_space + x_space), (y0 - y * y_space - 2 * y_space))
+    stuck1.goto((x0 + x * x_space + x_space + 1/5 * x_space), (y0 - y * y_space - 2 * y_space))
     stuck1.pd()
     stuck1.write(platard.list[y][x].numero, font=("arial", int(x_space / 1.5), "normal"))
 
@@ -103,6 +103,6 @@ def draw_evidence(platard, x, y):
 
 
     stuck1.pu()
-    stuck1.goto((x0 + x * x_space - (2 / 3) * x_space) , (y0 - y * y_space + y_space))
+    stuck1.goto((x0 + x * x_space + x_space + 1/5 * x_space), (y0 - y * y_space - 2 * y_space))
     stuck1.pd()
     stuck1.write("!", font=("arial", int(x_space / 1.5), "normal"))
