@@ -20,15 +20,29 @@ class Game_window:
         self.y0 = HEIGHT / 2
 
     def draw_plato_window(self):
+        #   dessine le plateau en fonction de sa taille
         x_space = WIDTH / self.plato.x
         y_space = HEIGHT / self.plato.y
         self.turtle.speed(0)
 
+        #self.turtle.pu()
+        #self.turtle.goto(self.x0 - x_space, self.y0 + y_space)
+        #self.turtle.pd()
+        #self.turtle.goto(self.x0 - x_space, -HEIGHT / 2 - x_space)
+        #
+        #self.turtle.pu()
+        #self.turtle.goto(self.x0 - x_space, self.y0 + y_space)
+        #self.turtle.pd()
+        #self.turtle.goto(-WIDTH / 2, self.y0)
+
         for i in range(self.plato.x + 1):
-            self.turtle.pu()
-            self.turtle.goto(self.x0 + 1/5 * x_space, self.y0 - y_space)
-            self.turtle.pd()
-            self.turtle.write(i, font=("arial", int(x_space / 1.5), "normal"))
+            if i-1 == -1:
+                pass
+            else:
+                self.turtle.pu()
+                self.turtle.goto(self.x0 + 1/5 * x_space, self.y0 - y_space)
+                self.turtle.pd()
+                self.turtle.write(i - 1, font=("arial", int(x_space / 1.5), "normal"))
 
             self.x0 += x_space
             self.turtle.pu()
@@ -38,13 +52,13 @@ class Game_window:
 
 
         for i in range(self.plato.y + 1):
-            if i == 0:
+            if i-1 == -1:
                 pass
             else:
                 self.turtle.pu()
-                self.turtle.goto( - self.x0 + x_space,  self.y0 - y_space)
+                self.turtle.goto(- self.x0 + x_space,  self.y0 - y_space)
                 self.turtle.pd()
-                self.turtle.write(i, font=("arial", int(x_space / 1.5), "normal"))
+                self.turtle.write(i - 1, font=("arial", int(x_space / 1.5), "normal"))
 
 
             self.y0 -= y_space
@@ -53,15 +67,42 @@ class Game_window:
             self.turtle.pd()
             self.turtle.goto(-WIDTH / 2, self.y0)
 
+        #turtle.done()
 
-    def draw_number(self):
+def draw_number(platard, x, y):
+    #   Dessine les numéros une fois décovert
+
+    x_space = WIDTH / platard.x
+    y_space = HEIGHT / platard.y
+
+    x0 = - WIDTH / 2
+    y0 = HEIGHT / 2
+
+    stuck1.penup()
+    stuck1.goto(x_space, y_space)
+    stuck1.pd()
 
 
+    stuck1.pu()
+    stuck1.goto((x0 + x * x_space + x_space), (y0 - y * y_space - 2 * y_space))
+    stuck1.pd()
+    stuck1.write(platard.list[y][x].numero, font=("arial", int(x_space / 1.5), "normal"))
 
-        turtle.done()
+def draw_evidence(platard, x, y):
+    #   Dessine les numéros une fois décovert
+
+    x_space = WIDTH / platard.x
+    y_space = HEIGHT / platard.y
+
+    x0 = - WIDTH / 2
+    y0 = HEIGHT / 2
+
+    stuck1.penup()
+    stuck1.goto(x_space, y_space)
+    stuck1.pd()
 
 
-
-zeg = Plateau(10, 10)
-dd = Game_window(screen, stuck1, zeg)
-Game_window.draw_plato_window(dd)
+    stuck1.pu()
+    stuck1.goto((x0 + x * x_space - (2 / 3) * x_space) , (y0 - y * y_space + y_space))
+    stuck1.pd()
+    stuck1.write("!", font=("arial", int(x_space / 1.5), "normal"))
