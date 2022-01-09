@@ -104,3 +104,4 @@ if __name__ == "__main__":
         y = int(input("Nombre en y : "))
         zeg.discovered(x, y)
         zeg.showTerminal()
+
