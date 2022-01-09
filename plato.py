@@ -4,7 +4,7 @@ from gui import *
 
 
 class Plateau:
-    def __init__(self, x , y, list = []):
+    def __init__(self, x, y, list=[]):
         self.list = list
         self.x = x
         self.y = y
@@ -13,8 +13,8 @@ class Plateau:
         affiche = ""
         for line in self.list:
             for case in line:
-                affiche+=str(case) + " | "
-            affiche+="\n" + ""
+                affiche += str(case) + " | "
+            affiche += "\n" + ""
         return affiche
 
     def matrice(self):
@@ -22,14 +22,13 @@ class Plateau:
         for i in range(self.y):
             k = []
             for n in range(self.x):
-                
-                k.append(Case(n,i))
+                k.append(Case(n, i))
             self.list.append(k)
-    
+
     def crBombe(self, difficulty=3):
         # crée les bombes dans la matrice
         for i in range(difficulty):
-            x = randrange(self.x) 
+            x = randrange(self.x)
             y = randrange(self.y)
             self.list[y][x].valeur = True
 
@@ -48,18 +47,17 @@ class Plateau:
             terminal += str(self.list.index(line)) + "|| "
             for case in line:
 
-               if case.open == False and case.evidence == False:
+                if case.open == False and case.evidence == False:
                     terminal += "■" + " | "
-               elif case.evidence == True and case.open == False:
-                   terminal += "!" + " | "
-               else:
+                elif case.evidence == True and case.open == False:
+                    terminal += "!" + " | "
+                else:
                     terminal += "" + str(case) + " | "
-            
-            
-            terminal +="\n"       
+
+            terminal += "\n"
         print(terminal)
 
-    def discovered(self, x , y):
+    def discovered(self, x, y):
         # affiche dans le terminal une fois découverte
         self.list[y][x].open = True
 
@@ -67,18 +65,16 @@ class Plateau:
 
         if self.list[y][x].numero == "X":
             print("BOUUM !!", x, ",", y, "est une bombe, vous avez perdu...")
-            
 
         if self.list[y][x].numero == 0:
             vs = self.list[y][x].voisins(self.list)
             for case in vs:
-                if self.list[case[1]][case[0]].valeur == False and self.list[case[1]][case[0]].open == False :
-                    self.discovered(case[0],case[1])
+                if self.list[case[1]][case[0]].valeur == False and self.list[case[1]][case[0]].open == False:
+                    self.discovered(case[0], case[1])
 
     def evidence(self, x, y):
         self.list[y][x].evidence = True
         draw_evidence(self, x, y)
-
 
     def checkwin(self):
         # regarde si toute les bombes ont été découverte
@@ -93,7 +89,7 @@ class Plateau:
 
 if __name__ == "__main__":
     print("璽■○□")
-    zeg = Plateau(10,10)
+    zeg = Plateau(10, 10)
     zeg.matrice()
     zeg.crBombe(20)
     zeg.bombinator()
