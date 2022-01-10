@@ -8,10 +8,17 @@ class Case:
         self.evidence = evidence  # Pour mettre en evidence ou non la case
 
     def __str__(self):
+        """
+        change le print de l'objet case
+        :return: str
+        """
         return str(self.numero)
 
     def checkbomb(self, list_plato):
-        #   Check le nombre de bombe dans les cases adjacentes
+        """
+        Check le nombre de bombe dans les cases adjacentes
+        :param list_plato: list
+        """
 
         if self.valeur == False:
 
@@ -75,6 +82,11 @@ class Case:
             self.numero = "X"
 
     def voisins(self, grille):
+        """
+       Retourner la liste de toutes les cases adjacentes
+        :param grille: list
+        :return: list
+        """
 
         voisins = []
         nbligne = len(grille)
