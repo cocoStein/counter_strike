@@ -14,6 +14,7 @@ class Plateau:
         print un objet plateau avec cette forme
         :return: str
         """
+        
         affiche = ""
         for line in self.list:
             for case in line:
@@ -25,6 +26,7 @@ class Plateau:
         """
         crée une matrice pour le plateau
         """
+
         for i in range(self.y):
             k = []
             for n in range(self.x):
@@ -36,6 +38,7 @@ class Plateau:
         crée les bombes dans la matrice
         :param difficulty: int
         """
+
         for i in range(difficulty):
             x = randrange(self.x)
             y = randrange(self.y)
@@ -45,6 +48,7 @@ class Plateau:
         """
         change les "numéro" de toutes les cases en fonction des bombes voisines
         """
+
         for y in range(self.y):
             for x in range(self.x):
                 self.list[y][x].checkbomb(self.list)
@@ -53,6 +57,7 @@ class Plateau:
         """
         Affiche dans le terminal les différents éléments
         """
+
         terminal = "/   "
         for i in range(self.x):
             terminal += str(i) + "   "
@@ -77,6 +82,7 @@ class Plateau:
         :param x: int
         :param y: int
         """
+
         self.list[y][x].open = True
 
         draw_number(self, x, y)
@@ -96,6 +102,7 @@ class Plateau:
         :param x: int
         :param y: int
         """
+
         self.list[y][x].evidence = True
         draw_evidence(self, x, y)
 

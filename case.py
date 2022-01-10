@@ -12,6 +12,7 @@ class Case:
         change le print de l'objet case
         :return: str
         """
+
         return str(self.numero)
 
     def checkbomb(self, list_plato):

@@ -20,7 +20,10 @@ class Game_window:
         self.y0 = HEIGHT / 2
 
     def draw_plato_window(self):
-        #   dessine le plateau en fonction de sa taille
+        """
+        dessine le plateau en fonction de sa taille
+        """
+
         x_space = WIDTH / self.plato.x
         y_space = HEIGHT / self.plato.y
         self.turtle.speed(0)
@@ -60,7 +63,12 @@ class Game_window:
         #turtle.done()
 
 def draw_number(platard, x, y):
-    #   Dessine les numéros une fois décovert
+    """
+    Dessine les numéros une fois décovert
+    :param platard: plateau
+    :param x: int
+    :param y: int
+    """
 
     x_space = WIDTH / platard.x
     y_space = HEIGHT / platard.y
@@ -79,7 +87,12 @@ def draw_number(platard, x, y):
     stuck1.write(platard.list[y][x].numero, font=("arial", int(x_space / 1.5), "normal"))
 
 def draw_evidence(platard, x, y):
-    #   Dessine les numéros une fois décovert
+    """
+    Dessine les numéros une fois mis en évidence
+    :param platard: plateau
+    :param x: int
+    :param y: int
+    """
 
     x_space = WIDTH / platard.x
     y_space = HEIGHT / platard.y
