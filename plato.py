@@ -14,7 +14,7 @@ class Plateau:
         print un objet plateau avec cette forme
         :return: str
         """
-        
+
         affiche = ""
         for line in self.list:
             for case in line:
