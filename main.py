@@ -26,4 +26,3 @@ while k.valeur == False:
         plato.evidence(x , y)
         plato.showTerminal()
 print("BOUUM !!", x, ",", y, "est une bombe, vous avez perdu...")
-

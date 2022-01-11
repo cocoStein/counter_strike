@@ -10,6 +10,11 @@ class Plateau:
         self.y = y
 
     def __str__(self):
+        """
+        print un objet plateau avec cette forme
+        :return: str
+        """
+
         affiche = ""
         for line in self.list:
             for case in line:
@@ -18,7 +23,10 @@ class Plateau:
         return affiche
 
     def matrice(self):
-        # crée une matrice pour le plateau
+        """
+        crée une matrice pour le plateau
+        """
+
         for i in range(self.y):
             k = []
             for n in range(self.x):
@@ -26,19 +34,30 @@ class Plateau:
             self.list.append(k)
 
     def crBombe(self, difficulty=3):
-        # crée les bombes dans la matrice
+        """
+        crée les bombes dans la matrice
+        :param difficulty: int
+        """
+
         for i in range(difficulty):
             x = randrange(self.x)
             y = randrange(self.y)
             self.list[y][x].valeur = True
 
     def bombinator(self):
+        """
+        change les "numéro" de toutes les cases en fonction des bombes voisines
+        """
+
         for y in range(self.y):
             for x in range(self.x):
                 self.list[y][x].checkbomb(self.list)
 
     def showTerminal(self):
-        # Affiche dans le terminal les différents éléments
+        """
+        Affiche dans le terminal les différents éléments
+        """
+
         terminal = "/   "
         for i in range(self.x):
             terminal += str(i) + "   "
@@ -58,7 +77,12 @@ class Plateau:
         print(terminal)
 
     def discovered(self, x, y):
+        """
         # affiche dans le terminal une fois découverte
+        :param x: int
+        :param y: int
+        """
+
         self.list[y][x].open = True
 
         draw_number(self, x, y)
@@ -73,11 +97,21 @@ class Plateau:
                     self.discovered(case[0], case[1])
 
     def evidence(self, x, y):
+        """
+        mettre en evidence une case du plateau
+        :param x: int
+        :param y: int
+        """
+
         self.list[y][x].evidence = True
         draw_evidence(self, x, y)
 
     def checkwin(self):
-        # regarde si toute les bombes ont été découverte
+        """
+        compte le nombre de case sans bombe restante
+        :return: int
+        """
+
         n = 0  # nombre de case restant
 
         for line in self.list:
